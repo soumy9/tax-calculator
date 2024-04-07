@@ -1,0 +1,53 @@
+html {
+	font-size: 10px;
+}
+
+body {
+	font-size: 1.6rem;
+}
+
+.d-flex {
+	display: flex;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.gap-2 {
+	gap: 2rem;
+}
+
+.flex-20 {
+	flex-basis: 20%;
+}
+
+
+.flex-100 {
+	flex-basis: 100%;
+}
+
+.space-between {
+	justify-content: space-between;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1120px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.m-b-2 {
+	margin-bottom: 4rem;
+}
+
+.m-b-4 {
+	margin-bottom: 4rem;
+}

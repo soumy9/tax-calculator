@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container">
+	<div class="d-flex gap-2 m-b-2">
+		<form action="" onsubmit="return formSubmitHandler(event)" class="d-flex flex-column">
+			<label for="basic">Basic</label>
+			<input name="basic" id="basic" type="text" required>
+			<label for="hra">HRA</label>
+			<input name="hra" id="hra" type="text" required>
+			<label for="sp_all">Special Allowance</label>
+			<input name="sp_all" id="sp_all" type="text" required>
+			<label for="inv_80c">Investments in 80c</label>
+			<input name="inv_80c" id="inv_80c" type="text" value="0">
+			<label for="inv_80e">Investments in 80e</label>
+			<input name="inv_80e" id="inv_80e" type="text" value="0">
+			<label for="inv_80d">Investments in 80d</label>
+			<input name="inv_80d" id="inv_80d" type="text" value="0">
+			<label for="bonus">Bonus</label>
+			<input name="bonus" id="bonus" type="text" value="0">
+			<label for="rentPaid">Rent Paid</label>
+			<input name="rentPaid" id="rentPaid" type="text" value="0">
+			<label for="professionalTax">Preofeesional tax</label>
+			<input name="professionalTax" id="professionalTax" type="text" value="0">
+	
+			<button>Submit</button>
+		</form>
+		<table class="flex-20">
+			<caption>Tax calculation parameters</caption>
+			<tr>
+				<th>Component</th>
+				<th>Value</th>
+			</tr>
+			<tr><td>PF Employee Contribution</td><td>12% of basic</td></tr>
+			<tr><td>HRA Deduction</td><td>Minimum(HRA, 40% of Basic, Rent paid - 10% of basic)</td></tr>
+			<tr><td>CESS</td><td>4% of income tax</td></tr>
+			<tr><td>Standard Deduction</td><td>50,000</td></tr>
+		</table>
+	</div>
+	<table id="calculation-table" class="m-b-2">
+			<tr>
+					<th>Tax Scheme</th>
+					<th>Taxable Income</th>
+					<th>Tax On Salary</th>
+					<th>CESS</th>
+					<th>Total Tax</th>
+					<th>PF Employee Contribution</th>
+					<th>Total Deductions from Salary</th>
+					<th>Professional Tax</th>
+					<th>Annual In Hand</th>
+					<th>Monthly In Hand</th>
+			</tr>
+	</table>
+	<script src="new_vs_old_tax.js"></script>
+</body>
+
+</html>
