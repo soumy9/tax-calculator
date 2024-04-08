@@ -154,6 +154,7 @@ function formSubmitHandler(e) {
 		inv_80d,
 		rentPaid,
 		professionalTax,
+		totalOtherAllowances
 	} = Object.fromEntries(
 		formData.entries().map(([key, value]) => {
 			return [key, value - 0];
@@ -169,9 +170,9 @@ function formSubmitHandler(e) {
 		inv_80e,
 		inv_80d,
 		rentPaid,
-		professionalTax
+		professionalTax,
+		totalOtherAllowances
 	);
-	const totalOtherAllowances = 0;
 	const newSal3 = new Salary(
 		basic,
 		hra,
@@ -198,7 +199,7 @@ function updateTable(rowLabel, parameters) {
 }
 function clearTableData(){
 	//clear previous data from table
-	for (let i = 1; i < table.rows.length; i++) {
-		table.deleteRow(i);
+	while(table.rows.length>1) {
+		table.deleteRow(1);
 	}
 }
