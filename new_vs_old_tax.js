@@ -83,6 +83,7 @@ class Salary {
 			);
 			newTax = newTax + (upperLimit - lower_limit) * rate;
 		}
+		newTaxComputations["annualIncome"] = this.gross_sal;
 		newTaxComputations["taxableIncome"] = taxable_income;
 		newTaxComputations["taxOnSalary"] = Math.round(newTax);
 		newTaxComputations["cess"] = Math.round(newTax * this.CESS);
@@ -116,6 +117,7 @@ class Salary {
 		}
 
 		const taxComputations = {};
+		taxComputations["annualIncome"] = this.gross_sal;
 		taxComputations["taxableIncome"] = this.taxable_sal;
 		taxComputations["taxOnSalary"] = Math.round(total_tax);
 		taxComputations["cess"] = Math.round(total_tax * this.CESS);
@@ -185,7 +187,7 @@ function formSubmitHandler(e) {
 	return false;
 }
 
-function updateTable(rowLabel, parameters) {	
+function updateTable(rowLabel, parameters) {
 	const row = table.insertRow(table.rows.length);
 	const rowLabelCell = row.insertCell(0);
 	rowLabelCell.innerText = rowLabel;
