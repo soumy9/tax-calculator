@@ -64,7 +64,7 @@ class Salary {
 			this.gross_sal -
 			this.STANDARD_DEDUCTION -
 			this.hra_empt -
-			Math.min(inv.inv_80c, 150e3) -
+			Math.min(inv.inv_80c+this.pf_employee_contribution, 150e3) -
 			inv.inv_80e -
 			inv.inv_80d;
 	}
