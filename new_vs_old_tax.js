@@ -96,11 +96,13 @@ class Salary {
 			this.pf_employee_contribution +
 			this.professionalTax;
 		newTaxComputations["professionalTax"] = this.professionalTax;
-		newTaxComputations["annual in-hand"] =
-			this.gross_sal - newTaxComputations["totalDeductions"];
+		const annualInHand = this.gross_sal - newTaxComputations["totalDeductions"];
 		newTaxComputations["monthly in-hand"] = Math.round(
-			newTaxComputations["annual in-hand"] / 12
+		(annualInHand - this.variable_cmp) / 12
 		);
+		newTaxComputations["annual in-hand"] = annualInHand;
+		newTaxComputations["annual bonus"] = this.variable_cmp;
+		newTaxComputations["annual in-hand + bonus"] = newTaxComputations["annual in-hand"]+newTaxComputations["annual bonus"];
 		console.log(`new tax: `, newTaxComputations);
 		//return newTax;
 		return newTaxComputations;
@@ -129,11 +131,13 @@ class Salary {
 			this.pf_employee_contribution +
 			this.professionalTax;
 		taxComputations["professionalTax"] = this.professionalTax;
-		taxComputations["annual in-hand"] =
-			this.gross_sal - taxComputations["totalDeductions"];
+		const annualInHand = this.gross_sal - taxComputations["totalDeductions"];
 		taxComputations["monthly in-hand"] = Math.round(
-			taxComputations["annual in-hand"] / 12
+			(annualInHand - this.variable_cmp) / 12
 		);
+		taxComputations["annual in-hand"] = annualInHand;
+		taxComputations["annual bonus"] = this.variable_cmp;
+		taxComputations["annual in-hand + bonus"] = taxComputations["annual in-hand"]+taxComputations["annual bonus"];
 		console.log(`old tax:`, taxComputations);
 		//return total_tax * (1 + this.CESS);
 		return taxComputations;
