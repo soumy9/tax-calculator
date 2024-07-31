@@ -50,7 +50,7 @@ class Salary {
 		this.variable_cmp = bonus;
 		this.fixed_cmp = basic + hra + sp_all + totalOtherAllowances;
 		this.gross_sal = this.fixed_cmp + bonus;
-		this.rent_paid = rentPaid * 12;
+		this.rent_paid = rentPaid;
 		this.hra_empt = Math.round(
 			Math.min(
 				this.hra,
