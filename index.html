@@ -5,13 +5,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tax Calculator</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="./src/styles.css">
 </head>
 
 <body class="container">
 	<div class="d-flex gap-2 m-b-2">
-		<form action="" onsubmit="return formSubmitHandler(event)" class="d-flex flex-column">
-			<p>NOTE: Please enter all inputs as per year (per annum)</p>
+		<form action="" class="d-flex flex-column">
+			<div><input type="radio" name="unit" id="monthly" value="monthly" checked/>
+			<label for="monthly">Monthly</label>
+			<input type="radio" name="unit" id="annual" value="annual"/>
+			<label for="annual">Annual</label></div>
 			<label for="basic">Basic</label>
 			<input name="basic" id="basic" type="text" required>
 			<label for="hra">HRA</label>
@@ -22,21 +25,21 @@
 			<input name="bonus" id="bonus" type="text" value="0">
 			<label for="totalOtherAllowances">Total of any other allowances (Flexi benefits)</label>
 			<input name="totalOtherAllowances" id="totalOtherAllowances" type="text" value="0">
-			<label for="inv_80c">Investments in 80c</label>
-			<input name="inv_80c" id="inv_80c" type="text" value="0">
-			<label for="inv_80e">Investments in 80e</label>
-			<input name="inv_80e" id="inv_80e" type="text" value="0">
-			<label for="inv_80d">Investments in 80d</label>
-			<input name="inv_80d" id="inv_80d" type="text" value="0">
 			<label for="rentPaid">Rent Paid</label>
 			<input name="rentPaid" id="rentPaid" type="text" value="0">
 			<label for="professionalTax">Professional tax</label>
 			<input name="professionalTax" id="professionalTax" type="text" value="0">
+			<label for="inv_80c">Investments in 80c</label>
+			<input name="inv_80c" id="inv_80c" type="text" value="0">
+			<label for="inv_80d">Investments in 80d</label>
+			<input name="inv_80d" id="inv_80d" type="text" value="0">
+			<label for="inv_80e">Investments in 80e</label>
+			<input name="inv_80e" id="inv_80e" type="text" value="0">
 	
 			<button>Submit</button>
 		</form>
 		<table class="flex-20">
-			<caption>Tax calculation parameters</caption>
+			<caption>Tax calculation parameters (Old regime)</caption>
 			<tr>
 				<th>Component</th>
 				<th>Value</th>
@@ -45,6 +48,17 @@
 			<tr><td>HRA Deduction</td><td>Minimum(HRA, 40% of Basic, Rent paid - 10% of basic)</td></tr>
 			<tr><td>CESS</td><td>4% of income tax</td></tr>
 			<tr><td>Standard Deduction</td><td>50,000</td></tr>
+		</table>
+		<table class="flex-20">
+			<caption>Tax calculation parameters (New regime)</caption>
+			<tr>
+				<th>Component</th>
+				<th>Value</th>
+			</tr>
+			<tr><td>PF Employee Contribution</td><td>12% of basic</td></tr>
+			<tr><td>HRA Deduction</td><td>0</td></tr>
+			<tr><td>CESS</td><td>4% of income tax</td></tr>
+			<tr><td>Standard Deduction</td><td>75,000</td></tr>
 		</table>
 	</div>
 	<table id="calculation-table" class="m-b-2">
@@ -62,10 +76,9 @@
 					<th>Annual In Hand</th>
 					<th>Bonus</th>
 					<th>Annual In Hand + Bonus</th>
-
 			</tr>
 	</table>
-	<script src="new_vs_old_tax.js"></script>
+	<script src="./dist/new_vs_old_tax.js"></script>
 </body>
 
 </html>
