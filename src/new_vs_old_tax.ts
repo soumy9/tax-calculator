@@ -36,7 +36,7 @@ type Regime = {
 }
 
 type FormDataFields = {
-	unit: 'monthly' | 'annual'
+	unit: number;
 	basic: number;
 	hra: number;
 	sp_all: number;
@@ -226,7 +226,8 @@ function getFormValues<T extends Record<string, any>>(
 	const data = {} as T;
 
 	for (const [key, value] of formData.entries()) {
-		data[key as keyof T] = Number(value) as T[keyof T];
+		const cleanValue = value.toString().replace(',','');
+		data[key as keyof T] = Number(cleanValue) as T[keyof T];
 	}
 
 	return data;
@@ -287,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		// 	bonusTemp,
 		// 	rentPaid
 		// );
-		const multiplier = unit === 'annual' ? 1 : 12;
+		const multiplier = unit;
 
 		const newSal3 = new Salary(
 			basic * multiplier,

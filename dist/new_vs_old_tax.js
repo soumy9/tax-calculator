@@ -138,7 +138,8 @@ class Salary {
 function getFormValues(formData) {
     const data = {};
     for (const [key, value] of formData.entries()) {
-        data[key] = Number(value);
+        const cleanValue = value.toString().replace(',', '');
+        data[key] = Number(cleanValue);
     }
     return data;
 }
@@ -183,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 	bonusTemp,
         // 	rentPaid
         // );
-        const multiplier = unit === 'annual' ? 1 : 12;
+        const multiplier = unit;
         const newSal3 = new Salary(basic * multiplier, hra * multiplier, sp_all * multiplier, totalOtherAllowances * multiplier, bonus * multiplier, rentPaid * multiplier);
         const investments = new Investments(inv_80c, newSal3.pf_employee_contribution, inv_80d, inv_80e);
         const newRegimeTax = new IncomeTax(NEW_TAX.taxSlabs, NEW_TAX.standardDeduction, NEW_TAX.taxRebateLimit, newSal3, investments, professionalTax * multiplier, false);
