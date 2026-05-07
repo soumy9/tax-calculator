@@ -138,7 +138,7 @@ class Salary {
 function getFormValues(formData) {
     const data = {};
     for (const [key, value] of formData.entries()) {
-        const cleanValue = value.toString().replace(',', '');
+        const cleanValue = value.toString().replace(/,/g, '');
         data[key] = Number(cleanValue);
     }
     return data;

@@ -226,7 +226,7 @@ function getFormValues<T extends Record<string, any>>(
 	const data = {} as T;
 
 	for (const [key, value] of formData.entries()) {
-		const cleanValue = value.toString().replace(',','');
+		const cleanValue = value.toString().replace(/,/g,'');
 		data[key as keyof T] = Number(cleanValue) as T[keyof T];
 	}
 
