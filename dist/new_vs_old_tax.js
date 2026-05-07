@@ -168,22 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(e.currentTarget);
         const data = getFormValues(formData);
         const { basic = 0, hra = 0, sp_all = 0, bonus = 0, inv_80c = 0, inv_80e = 0, inv_80d = 0, rentPaid = 0, professionalTax = 0, totalOtherAllowances = 0, unit } = data;
-        // const [basicTemp,
-        // 	hraTemp,
-        // 	sp_allTemp,
-        // 	totalOtherAllowancesTemp,
-        // 	bonusTemp,
-        // 	inv_80cTemp,
-        // 	inv_80eTemp,
-        // 	inv_80dTemp] = [49426.07 * 12, 19770.43 * 12, 54667.84 * 12, 6425.39 * 12, 0, 1.5e5, 0, 40e3];
-        // const newSal3 = new Salary(
-        // 	basicTemp,
-        // 	hraTemp,
-        // 	sp_allTemp,
-        // 	totalOtherAllowancesTemp,
-        // 	bonusTemp,
-        // 	rentPaid
-        // );
         const multiplier = unit;
         const newSal3 = new Salary(basic * multiplier, hra * multiplier, sp_all * multiplier, totalOtherAllowances * multiplier, bonus * multiplier, rentPaid * multiplier);
         const investments = new Investments(inv_80c, newSal3.pf_employee_contribution, inv_80d, inv_80e);

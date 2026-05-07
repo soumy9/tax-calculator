@@ -271,23 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			totalOtherAllowances = 0,
 			unit
 		} = data;
-
-		// const [basicTemp,
-		// 	hraTemp,
-		// 	sp_allTemp,
-		// 	totalOtherAllowancesTemp,
-		// 	bonusTemp,
-		// 	inv_80cTemp,
-		// 	inv_80eTemp,
-		// 	inv_80dTemp] = [49426.07 * 12, 19770.43 * 12, 54667.84 * 12, 6425.39 * 12, 0, 1.5e5, 0, 40e3];
-		// const newSal3 = new Salary(
-		// 	basicTemp,
-		// 	hraTemp,
-		// 	sp_allTemp,
-		// 	totalOtherAllowancesTemp,
-		// 	bonusTemp,
-		// 	rentPaid
-		// );
 		const multiplier = unit;
 
 		const newSal3 = new Salary(
